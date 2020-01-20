@@ -7,7 +7,7 @@ const Todo = ({ todos, deletTodoTask }) => {
         todos.map((todo) =>
             <div key={todo.id} className = {styles.oneTask}>
                 {todo.task}
-                <span onClick={() => { deletTodoTask(todo.id) }}> <Icon type="delete" style={{ left: '80%', position: "absolute", cursor: 'pointer' }} /></span>
+                <span onClick={() => { deletTodoTask(todo.id, todos) }}> <Icon type="delete" style={{ left: '80%', position: "absolute", cursor: 'pointer' }} /></span>
             </div>
         )
     )

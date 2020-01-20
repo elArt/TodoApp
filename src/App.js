@@ -14,31 +14,33 @@ class App extends Component {
       { id: 2, task: 'learn more react' }
     ]
   }
+  // {todoList} = this.state.todoList;
 
-  deletPost = (id) => {
-    const newTodo = this.state.todoList.filter(todo => {
+  deletPost = (id, todoList) => {
+    const newTodo = todoList.filter(todo => {
       return todo.id !== id
     })
     this.setState({
       todoList: newTodo
     })
   }
-  addTodoList = (inputData) => {
+  addTodoList = (inputValue, todos) => {
     const newTodo = {
       id: Date.now(),
-      task: inputData
+      task: inputValue
     }
     this.setState({
-      todoList: [...this.state.todoList, newTodo]
+      todoList: [...todos, newTodo]
     })
   }
 
   render() {
+    const {todoList} = this.state;
     return (
       <div>
         <Title className={styles.title}>TODO</Title>
-        <InputField addTodoList={this.addTodoList} />
-        <Todo todos={this.state.todoList} deletTodoTask={this.deletPost} />
+        <InputField todos={todoList} addTodoList={this.addTodoList} />
+        <Todo todos={todoList} deletTodoTask={this.deletPost} />
       </div>
     )
   }
