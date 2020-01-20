@@ -1,30 +1,43 @@
 import React from 'react';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 
 import styles from './styles.module.scss';
 
 class InputField extends React.Component {
- 
     state = {
         value: ''
-    }
+    };
+
     changesInField = (e) =>{
         this.setState({
-            value: e.target.value
-        })
-    }
-    addTodo = (e) =>{
+            value: e.target.value,
+        });
+    };
+
+    addTodo = (value) => (e) => {
         e.preventDefault();
-        this.props.addTodoList(this.state.value)
+        const {addTodoList} = this.props;
+        if(value) {
+        addTodoList(value);
         this.setState({
-            value: ''
-        })
-    }
+            value: '',
+        });
+        }
+    };
 
     render(){
+      const  {value} = this.state;
+
         return(
-            <form className={styles.inputForm} onChange ={this.changesInField} onSubmit={this.addTodo}>
-                <Input className={styles.inputField} value={this.state.value} placeholder="What you whant add to do?" />
+            <form
+                className = {styles.editForm}
+                onChange ={this.changesInField}
+                onSubmit={this.addTodo(value)}>
+                <Input
+                value={value}
+                placeholder="Input your todo please"
+                />
+                <Button htmlType="submit">Add</Button>
             </form>
         )
     }

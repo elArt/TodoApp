@@ -1,23 +1,31 @@
-import React from 'react';
-import { Icon } from 'antd';
-import styles from './styles.module.scss';
+import React from "react";
+import { List } from "antd";
+import Post from '../Post'
 
-const Todo = ({ todos, deletTodoTask }) => {
-    const todoList = todos.length ? (
-        todos.map((todo) =>
-            <div key={todo.id} className = {styles.oneTask}>
-                {todo.task}
-                <span onClick={() => { deletTodoTask(todo.id) }}> <Icon type="delete" style={{ left: '80%', position: "absolute", cursor: 'pointer' }} /></span>
-            </div>
-        )
-    )
-        : "You need more learn REACT";
-    return (
+const Todo = ({ todoList, deleteTodoTask, editTodoItem, selectTodoItem }) => {
 
-        <div className = {styles.inputTaskField}>
-            {todoList}
-        </div>
-    )
-}
+  return (
+      <>
+          {
+              !!todoList.length ?
+                <List
+                  bordered
+                  dataSource={todoList}
+                  renderItem={item =>
+                      <List.Item>
+                          <Post
+                              key={item.id}
+                              todo = {item}
+                              deleteTodoTask = {deleteTodoTask}
+                              selectTodoItem={selectTodoItem}
+                              editPost = {editTodoItem}
+                            />
+                      </List.Item>}
+                />
+                  : <h3>You need more learn REACT</h3>
+          }
+      </>
+  );
+};
 
 export default Todo;

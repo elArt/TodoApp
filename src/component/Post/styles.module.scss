@@ -1,0 +1,30 @@
+.post{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .postBtnPanel {
+        width: 60px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .iconsDelet{
+            cursor: pointer;
+            &:hover{
+                color: rgb(231, 6, 6);
+            }
+        }
+        .iconsEdit{
+            cursor: pointer;
+            display: inline-block;
+            &:hover{
+                color: rgb(47, 6, 231);
+            }
+    }
+
+    }
+}
+
+
+
