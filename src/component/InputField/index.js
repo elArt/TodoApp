@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input } from 'antd';
+import { Input, Button } from 'antd';
 
 import styles from './styles.module.scss';
 
@@ -24,14 +24,17 @@ class InputField extends React.Component {
     render(){
         const {addTodoList, todos} = this.props;
         return(
-            <form className={styles.inputForm}
-                     onChange ={this.changesInField}
-                     onSubmit={(e)=>{
-                         this.addTodo(e, addTodoList, todos)
-                         }
-                    }
-            >
-                <Input className={styles.inputField} value={this.state.value} placeholder="What you whant add to do?" />
+            <form 
+                className = {styles.editForm}
+                onChange ={this.changesInField}
+                onSubmit={(e)=>{
+                    this.addTodo(e, addTodoList, todos)
+                }}>
+                <Input 
+                value={this.state.value} 
+                placeholder="What need to do?" 
+                />
+                <Button htmlType="submit">Add</Button>
             </form>
         )
     }

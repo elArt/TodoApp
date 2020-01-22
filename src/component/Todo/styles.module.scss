@@ -1,6 +1,24 @@
-.inputTaskField{
-    text-align: center;
+// .inputTaskField{
+//     text-align: center;
+// }
+// .oneTask{
+//     margin: 10px;
+// }
+.iconsDelet{
+    right: 20px;
+    position: absolute;
+    cursor: pointer;
+    
 }
-.oneTask{
-    margin: 10px;
+.iconsDelet:hover{
+    color: rgb(231, 6, 6);
+}
+.iconsEdit{
+    right: 50px;
+    position: absolute;
+    cursor: pointer;
+    
+}
+.iconsEdit:hover{
+    color: rgb(47, 6, 231);
 }
