@@ -11,7 +11,7 @@ const todoListFromJson = data.items;
 
 class App extends Component {
   state = {
-    todoList: "",
+    todoList: [],
     visible: false,
     editText: "",
     id: ""
@@ -35,9 +35,12 @@ class App extends Component {
     const newTodo = todoList.filter(todo =>
       todo.id === editId ? (todo.text = editText) : todo
     );
+    
     this.setState({
       visible: false,
-      todoList: newTodo
+      todoList: newTodo,
+      editText: '',
+      id: ''
     });
   };
 
@@ -70,16 +73,13 @@ class App extends Component {
   }
 
   render() {
-    const todoList = this.state.todoList;
-    const visible = this.state.visible;
-    const editText = this.state.editText;
-    const editId = this.state.id;
+    const allState = this.state;    
     return (
       <div>
         <Title className={styles.title}>TODO</Title>
-        <InputField todos={todoList} addTodoList={this.addTodoList} />
+        <InputField todos={allState.todoList} addTodoList={this.addTodoList} />
         <Todo
-          todos={todoList}
+          todos={allState.todoList}
           deletTodoTask={this.deletPost}
           editPost={this.editPost}
         />
@@ -87,10 +87,10 @@ class App extends Component {
           handleOk={this.handleOk}
           handleCancel={this.handleCancel}
           changeModalValue={this.changeModalValue}
-          editId={editId}
-          todoList={todoList}
-          editText={editText}
-          visible={visible}
+          editId={allState.id}
+          todoList={allState.todoList}
+          editText={allState.editText}
+          visible={allState.visible}
         ></ModalWindow>
       </div>
     );

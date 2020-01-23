@@ -13,7 +13,8 @@ class InputField extends React.Component {
             value: e.target.value
         })
     }
-    addTodo = (e, addTodoList, todos) =>{
+    addTodo = (e) =>{
+        const {addTodoList, todos} = this.props;
         e.preventDefault();
         addTodoList(this.state.value, todos)
         this.setState({
@@ -22,14 +23,12 @@ class InputField extends React.Component {
     }
 
     render(){
-        const {addTodoList, todos} = this.props;
+        
         return(
             <form 
                 className = {styles.editForm}
                 onChange ={this.changesInField}
-                onSubmit={(e)=>{
-                    this.addTodo(e, addTodoList, todos)
-                }}>
+                onSubmit={this.addTodo}>
                 <Input 
                 value={this.state.value} 
                 placeholder="What need to do?" 
