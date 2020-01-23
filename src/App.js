@@ -73,13 +73,13 @@ class App extends Component {
   }
 
   render() {
-    const allState = this.state;    
+    const {todoList, id, editText, visible} = this.state;    
     return (
       <div>
         <Title className={styles.title}>TODO</Title>
-        <InputField todos={allState.todoList} addTodoList={this.addTodoList} />
+        <InputField todos={todoList} addTodoList={this.addTodoList} />
         <Todo
-          todos={allState.todoList}
+          todos={todoList}
           deletTodoTask={this.deletPost}
           editPost={this.editPost}
         />
@@ -87,10 +87,10 @@ class App extends Component {
           handleOk={this.handleOk}
           handleCancel={this.handleCancel}
           changeModalValue={this.changeModalValue}
-          editId={allState.id}
-          todoList={allState.todoList}
-          editText={allState.editText}
-          visible={allState.visible}
+          editId={id}
+          todoList={todoList}
+          editText={editText}
+          visible={visible}
         ></ModalWindow>
       </div>
     );

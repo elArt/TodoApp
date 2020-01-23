@@ -15,8 +15,9 @@ class InputField extends React.Component {
     }
     addTodo = (e) =>{
         const {addTodoList, todos} = this.props;
+        const {value} = this.state;
         e.preventDefault();
-        addTodoList(this.state.value, todos)
+        addTodoList(value, todos)
         this.setState({
             value: ''
         })
