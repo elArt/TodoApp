@@ -17,7 +17,8 @@ class App extends Component {
     id: ""
   };
   
-  deletPost = (id, todoList) => {
+  deletPost = (id) => {
+    const { todoList } = this.state;
     const newTodo = todoList.filter(todo => todo.id !== id);
     this.setState({
       todoList: newTodo
@@ -32,7 +33,9 @@ class App extends Component {
     });
   };
 
-  handleOk = (editId, todoList, editText) => {
+  handleOk = (editId,  editText) => {
+    const { todoList } = this.state;
+
     const newTodo = todoList.filter(todo =>
       todo.id === editId ? (todo.text = editText) : todo
     );

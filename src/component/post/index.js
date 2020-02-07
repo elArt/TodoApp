@@ -8,7 +8,7 @@ import styles from "./styles.module.scss";
       editPost(todo.id, todo.text, todos);
   }
   const _clickremovePost = () => {
-    deletTodoTask(todo.id, todos);
+    deletTodoTask(todo.id);
 }
 
   return(

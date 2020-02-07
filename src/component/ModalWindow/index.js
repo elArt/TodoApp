@@ -6,11 +6,10 @@ const ModalWindow = ({
   handleCancel,
   changeModalValue,
   editId,
-  todoList,
   editText,
   visible
 }) => {
-  const handleOkModal = () => handleOk(editId, todoList, editText);
+  const handleOkModal = () => handleOk(editId, editText);
 
   return (
     <div>

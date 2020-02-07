@@ -1,6 +1,5 @@
 import React from "react";
-import { Icon, List } from "antd";
-import styles from "./styles.module.scss";
+import { List } from "antd";
 import Post from '../post'
 
 const Todo = ({ todos, deletTodoTask, editPost }) => {
