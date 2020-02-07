@@ -24,6 +24,7 @@ class InputField extends React.Component {
     }
 
     render(){
+      const  {value} = this.state
         
         return(
             <form 
@@ -31,7 +32,7 @@ class InputField extends React.Component {
                 onChange ={this.changesInField}
                 onSubmit={this.addTodo}>
                 <Input 
-                value={this.state.value} 
+                value={value} 
                 placeholder="What need to do?" 
                 />
                 <Button htmlType="submit">Add</Button>

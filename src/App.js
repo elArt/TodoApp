@@ -1,10 +1,10 @@
 import React, { Component } from "react";
-import Todo from "./component/Todo/";
-import InputField from "./component/InputField/";
+import Todo from "./component/Todo";
+import InputField from "./component/InputField";
+import ModalWindow from "./component/ModalWindow";
 import { Typography } from "antd";
 import styles from "./styles.module.scss";
 import * as data from "./mocks/todo.json";
-import ModalWindow from "./component/ModalWindow";
 
 const { Title } = Typography;
 const todoListFromJson = data.items;
@@ -16,6 +16,7 @@ class App extends Component {
     editText: "",
     id: ""
   };
+  
   deletPost = (id, todoList) => {
     const newTodo = todoList.filter(todo => todo.id !== id);
     this.setState({
