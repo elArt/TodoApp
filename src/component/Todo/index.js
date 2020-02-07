@@ -1,31 +1,18 @@
 import React from "react";
 import { Icon, List } from "antd";
 import styles from "./styles.module.scss";
+import Post from '../post'
 
 const Todo = ({ todos, deletTodoTask, editPost }) => {
   const todoList = todos.length
-    ? todos.map(todo => (
-        <div key={todo.id}>
-          {todo.text}
-          <span
-            className={styles.iconsEdit}
-            onClick={() => {
-              editPost(todo.id, todo.text, todos);
-            }}
-          >
-            <Icon type="edit" />
-          </span>
-          <span
-            className={styles.iconsDelet}
-            onClick={() => {
-              deletTodoTask(todo.id, todos);
-            }}
-          >
-            {" "}
-            <Icon type="delete" />
-          </span>
-        </div>
-      ))
+? todos.map(todo => {
+   return  <Post  
+              todos = {todos} 
+              todo = {todo} 
+              deletTodoTask = {deletTodoTask} 
+              editPost = {editPost}
+            />
+})
     : "You need more learn REACT";
 
   return (
