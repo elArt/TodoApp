@@ -1,6 +1,6 @@
 import React from "react";
 import { List } from "antd";
-import Post from '../Post'
+import Post from '../post'
 
 const Todo = ({ todos, deletTodoTask, editPost }) => {
   const clearList = <h3>"You need more learn REACT"</h3>;
