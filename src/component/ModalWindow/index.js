@@ -13,7 +13,6 @@ const ModalWindow = ({
   const handleOkModal = () => handleOk(editId, editText);
 
   return (
-    <div>
       <Modal
         title="Basic Modal"
         visible={visible}
@@ -22,7 +21,6 @@ const ModalWindow = ({
       >
         <Input value={editText} onChange={changeModalValue} />
       </Modal>
-    </div>
   );
 };
 

@@ -25,7 +25,6 @@ import styles from "./styles.module.scss";
         className={styles.iconsDelet}
         onClick={_clickremovePost}
       >
-        {" "}
         <Icon type="delete" />
       </span>
     </div>
