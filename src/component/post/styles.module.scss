@@ -1,15 +1,26 @@
-.iconsDelet{
-    right: 20px;
-    cursor: pointer;
-    &:hover{
-        color: rgb(231, 6, 6);
+.post{
+    width: 100%;
+    position: relative;
+    display: inline-block;
+    .iconsDelet{
+        float: right;
+        cursor: pointer;
+        position: relative;
+        margin-right: 20px;
+        &:hover{
+            color: rgb(231, 6, 6);
+        }
+    }
+    .iconsEdit{
+        position: relative;
+        float: right;
+        cursor: pointer;
+        &:hover{
+            color: rgb(47, 6, 231);
+        }
+        
     }
 }
-.iconsEdit{
-    right: 50px;
-    cursor: pointer;
-    &:hover{
-        color: rgb(47, 6, 231);
-    }
-    
-}
+
+
+

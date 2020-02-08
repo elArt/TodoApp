@@ -13,8 +13,8 @@ import styles from "./styles.module.scss";
   }
 
   return(
-    <div key={todo.id}>
-      {todo.text}
+    <div key={todo.id} className = {styles.post}>
+      <span>{todo.text}</span>
       <span
         className={styles.iconsEdit}
         onClick={clickEditPost}
