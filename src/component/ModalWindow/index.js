@@ -8,7 +8,8 @@ const ModalWindow = ({
   editId,
   editText,
   visible
-}) => {
+      }) => {
+
   const handleOkModal = () => handleOk(editId, editText);
 
   return (

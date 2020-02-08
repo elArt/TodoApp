@@ -20,14 +20,13 @@ class App extends Component {
   deletPost = (id) => {
     const { todoList } = this.state;
     const newTodo = todoList.filter(todo => todo.id !== id);
-    this.setState({
-      todoList: newTodo
-    });
+    this.editTodoList( newTodo );
+
   };
 
-  editPost = (id, text) => {
+  editPost = (bool = false, id = '', text = '') => {
     this.setState({
-      visible: true,
+      visible: bool,
       editText: text,
       id: id
     });
@@ -39,19 +38,13 @@ class App extends Component {
     const newTodo = todoList.filter(todo =>
       todo.id === editId ? (todo.text = editText) : todo
     );
+    this.editTodoList( newTodo );
+    this.editPost();
     
-    this.setState({
-      visible: false,
-      todoList: newTodo,
-      editText: '',
-      id: ''
-    });
   };
 
   handleCancel = () => {
-    this.setState({
-      visible: false
-    });
+    this.editPost();
   };
 
   changeModalValue = e => {
@@ -65,21 +58,24 @@ class App extends Component {
       id: Date.now(),
       text: inputValue
     };
-    this.setState({
-      todoList: [...todos, newTodo]
-    });
+
+    this.editTodoList(todos, newTodo);
   };
 
-  componentDidMount() {
+  editTodoList = ( todos, ...rest) =>{
     this.setState({
-      todoList: todoListFromJson
+      todoList: [...todos, ...rest]
     });
+  }
+
+  componentDidMount() {
+    this.editTodoList(todoListFromJson);
   }
 
   render() {
     const {todoList, id, editText, visible} = this.state;    
     return (
-      <div>
+      <div className={styles.container}>
         <Title className={styles.title}>TODO</Title>
         <InputField todos={todoList} addTodoList={this.addTodoList} />
         <Todo
@@ -95,7 +91,7 @@ class App extends Component {
           todoList={todoList}
           editText={editText}
           visible={visible}
-        ></ModalWindow>
+        />
       </div>
     );
   }

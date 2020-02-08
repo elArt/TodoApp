@@ -2,21 +2,22 @@ import React from "react";
 import { Icon } from "antd";
 import styles from "./styles.module.scss";
 
- const Post = ({todo, todos, editPost, deletTodoTask }) => { 
+ const Post = ({todo, editPost, deletTodoTask }) => { 
 
-  const _clickEditPost = () => {
-      editPost(todo.id, todo.text, todos);
+  const clickEditPost = () => {
+      editPost(true, todo.id, todo.text);
   }
+
   const _clickremovePost = () => {
     deletTodoTask(todo.id);
-}
+  }
 
   return(
     <div key={todo.id}>
       {todo.text}
       <span
         className={styles.iconsEdit}
-        onClick={_clickEditPost}
+        onClick={clickEditPost}
       >
         <Icon type="edit" />
       </span>

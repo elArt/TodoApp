@@ -1,18 +1,18 @@
 import React from "react";
 import { List } from "antd";
-import Post from '../post'
+import Post from '../Post'
 
 const Todo = ({ todos, deletTodoTask, editPost }) => {
+  const clearList = <h3>"You need more learn REACT"</h3>;
   const todoList = todos.length
 ? todos.map(todo => {
    return  <Post  
-              todos = {todos} 
               todo = {todo} 
               deletTodoTask = {deletTodoTask} 
               editPost = {editPost}
             />
 })
-    : "You need more learn REACT";
+    : [clearList];
 
   return (
     <List
