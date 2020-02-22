@@ -14,7 +14,7 @@ class TodoPage extends React.Component {
     todosList: [],
     visible: false,
     changesItem: {},
-    creatingItem: {},
+    creatingItem: {}
   };
 
   componentDidMount() {
@@ -62,7 +62,6 @@ class TodoPage extends React.Component {
   };
 
   creatingNewTodo = e => {
-
     const { value } = e.target;
     const id = Date.now();
     const time = new Date();
@@ -85,17 +84,30 @@ class TodoPage extends React.Component {
     });
   };
 
+  deleteTask = id => {
+    this.setState(prevState => {
+      return {
+        todosList: prevState.todosList.filter(todo => todo.id !== id)
+      };
+    });
+  };
+
   render() {
-    const { changesItem, visible, todosList, creatingItem} = this.state;
-    
+    const { changesItem, visible, todosList, creatingItem } = this.state;
+
     return (
       <div className={styles.container}>
         <h1 className={styles.title}>TODOS LIST</h1>
-        <Input addTodo={this.addTodo} creatingNewTodo={this.creatingNewTodo} text={creatingItem.text} />
+        <Input
+          addTodo={this.addTodo}
+          creatingNewTodo={this.creatingNewTodo}
+          text={creatingItem.text}
+        />
         <FieldTodo
           todosList={todosList}
           showModal={this.showModal}
           selectChangesItem={this.selectChangesItem}
+          deleteTask={this.deleteTask}
         />
         <ModalWindow
           handleOk={this.handleOk(changesItem)}

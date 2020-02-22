@@ -3,7 +3,7 @@ import Task from "../Task/Task";
 
 import styles from "./styles.module.scss";
 
-const TasksList = ({ todosList, showModal, selectChangesItem}) => {
+const TasksList = ({ todosList, showModal, selectChangesItem, deleteTask}) => {
 
   const listWithTodo = todosList.map(todo => {
     return (
@@ -12,6 +12,7 @@ const TasksList = ({ todosList, showModal, selectChangesItem}) => {
           todo={todo}
           showModal={showModal}
           selectChangesItem={selectChangesItem}
+          deleteTask={deleteTask}
         />
       </li>
     );
