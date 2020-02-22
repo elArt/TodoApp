@@ -22,8 +22,6 @@ const Task = ({ todo, showModal, selectChangesItem, deleteTask }) => {
   };
 
   const deleteThisTask = () => {
-    // console.log(deleteTask());
-
     deleteTask(todo.id);
   };
 
@@ -33,7 +31,7 @@ const Task = ({ todo, showModal, selectChangesItem, deleteTask }) => {
       <p>{todo.text}</p>
       <p className={styles.time}>{`${dateTodoCreate}`}</p>
       <div className={styles.btnGroup}>
-        <Icon className={styles.btnDone} type="check" />
+        {todo.is_complete ? <Icon className={styles.btnDone} type="check" /> : ''}
         <button className={styles.btnActive}></button>
         <Icon className={styles.btnEdit} onClick={editValue} type="edit" />
         <Icon
