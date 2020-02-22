@@ -8,11 +8,15 @@ import TasksList from '../TasksList/TasksList';
 
 class FieldTodo extends React.Component {
     render(){
-        const todosList = this.props.todosList;
+        const {todosList, showModal, selectChangesItem} = this.props;
         return(
             <div >
                 <Nav /> 
-                <TasksList todosList = {todosList} />
+                <TasksList 
+                    todosList = {todosList} 
+                    showModal= {showModal} 
+                    selectChangesItem={selectChangesItem}
+                />
             </div>
         )
     }
