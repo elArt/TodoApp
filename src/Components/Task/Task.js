@@ -29,7 +29,7 @@ const Task = ({ todo, showModal, selectChangesItem, deleteTask }) => {
     <div className={styles.todo}>
       <Checkbox/>
       <p>{todo.text}</p>
-      <p className={styles.time}>{`${dateTodoCreate}`}</p>
+      <p className={styles.time}>{dateTodoCreate}}</p>
       <div className={styles.btnGroup}>
         {todo.is_complete && <Icon className={styles.btnDone} type="check" />}
         <button className={todo.is_active ? styles.btnActive : styles.btnDontActive} />
