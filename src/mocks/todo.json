@@ -18,7 +18,8 @@
         "Devops",
         "Docker"
       ],
-      "is_complete" : true
+      "is_complete" : true,
+      "is_active": true
     },
     {
       "id" : 3,
@@ -28,7 +29,8 @@
         "Presentation",
         "Aureia"
       ],
-      "is_complete" : false
+      "is_complete" : false,
+      "is_active": true
     },
     {
       "id" : 4,
@@ -48,7 +50,8 @@
         "ES6",
         "Web Development"
       ],
-      "is_complete" : false
+      "is_complete" : false,
+      "is_active": true
     }
   ]
 }

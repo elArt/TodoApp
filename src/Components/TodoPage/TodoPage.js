@@ -103,6 +103,7 @@ class TodoPage extends React.Component {
           creatingNewTodo={this.creatingNewTodo}
           text={creatingItem.text}
         />
+        
         <FieldTodo
           todosList={todosList}
           showModal={this.showModal}
