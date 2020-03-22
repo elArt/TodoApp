@@ -9,14 +9,15 @@ const { TabPane } = Tabs;
 
 
 
-const Nav = ({todosList, showModal, selectChangesItem, deleteTask}) => {
-  
+const Nav = ({todosList, showModal, selectChangesItem, deleteTask, changesActive}) => {
+  console.log(todosList);
     const doneTodoList = todosList.filter(todo=>{
       return todo.is_complete;
     })
     const activeTodoList = todosList.filter(todo=>{
       return todo.is_active;
     })
+
     
   
   return (
@@ -28,6 +29,7 @@ const Nav = ({todosList, showModal, selectChangesItem, deleteTask}) => {
           showModal={showModal}
           selectChangesItem={selectChangesItem}
           deleteTask={deleteTask}
+          changesActive={changesActive}
         />
         </TabPane>
         <TabPane tab="Active" key="2">
@@ -36,6 +38,7 @@ const Nav = ({todosList, showModal, selectChangesItem, deleteTask}) => {
           showModal={showModal}
           selectChangesItem={selectChangesItem}
           deleteTask={deleteTask}
+          changesActive={changesActive}
         />
         </TabPane>
         <TabPane tab="Done" key="3">
@@ -44,6 +47,7 @@ const Nav = ({todosList, showModal, selectChangesItem, deleteTask}) => {
           showModal={showModal}
           selectChangesItem={selectChangesItem}
           deleteTask={deleteTask}
+          changesActive={changesActive}
         />
         </TabPane>
       </Tabs>

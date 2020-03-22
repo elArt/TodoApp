@@ -92,6 +92,24 @@ class TodoPage extends React.Component {
     });
   };
 
+  changesActive = id => {
+    console.log(id);
+    
+    this.setState(prevState => {
+      return {
+        todosList: prevState.todosList.map(todo => {
+          if (todo.id == id) {
+            todo.is_active = !todo.is_active;
+            return todo;
+          }
+          else{
+            return todo;
+          }
+        })
+      };
+    });
+  };
+
   render() {
     const { changesItem, visible, todosList, creatingItem } = this.state;
 
@@ -103,12 +121,13 @@ class TodoPage extends React.Component {
           creatingNewTodo={this.creatingNewTodo}
           text={creatingItem.text}
         />
-        
+
         <FieldTodo
           todosList={todosList}
           showModal={this.showModal}
           selectChangesItem={this.selectChangesItem}
           deleteTask={this.deleteTask}
+          changesActive={this.changesActive}
         />
         <ModalWindow
           handleOk={this.handleOk(changesItem)}

@@ -5,7 +5,7 @@ import styles from "./styles.module.scss";
 
 class FieldTodo extends React.Component {
   render() {
-    const { todosList, showModal, selectChangesItem, deleteTask } = this.props;
+    const { todosList, showModal, selectChangesItem, deleteTask, changesActive } = this.props;
     return (
       <div>
         <Nav 
@@ -13,6 +13,7 @@ class FieldTodo extends React.Component {
           showModal={showModal}
           selectChangesItem={selectChangesItem}
           deleteTask={deleteTask}
+          changesActive={changesActive}
         />
       </div>
     );
