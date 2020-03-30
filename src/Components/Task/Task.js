@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./styles.module.scss";
-import { Checkbox, Icon } from "antd";
+import { Checkbox, Icon, Popconfirm } from "antd";
 
 const Task = ({ todo, showModal, selectChangesItem, deleteTask , changesActive}) => {
   const dateCreate = new Date(todo.created_at);
@@ -32,18 +32,19 @@ const Task = ({ todo, showModal, selectChangesItem, deleteTask , changesActive})
 
   return (
     <div className={styles.todo}>
-      <Checkbox />
+      <Checkbox  disabled={todo.is_complete} checked={todo.is_complete}/>
       <p>{todo.text}</p>
       <p className={styles.time}>{dateTodoCreate}</p>
       <div className={styles.btnGroup}>
         {todo.is_complete && <Icon className={styles.btnDone} type="check" />}
         <button className={todo.is_active ? styles.btnActive : styles.btnDontActive} onClick={changesActiveStatus} />
         <Icon className={styles.btnEdit} onClick={editValue} type="edit" />
-        <Icon
-          className={styles.btnRemove}
-          onClick={deleteThisTask}
-          type="delete"
-        />
+        <Popconfirm title="Are you sure？" okText="Yes" cancelText="No" onConfirm={deleteThisTask}>
+          <Icon
+              className={styles.btnRemove}
+              type="delete"
+          />
+        </Popconfirm>
       </div>
     </div>
   );

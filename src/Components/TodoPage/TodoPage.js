@@ -93,12 +93,10 @@ class TodoPage extends React.Component {
   };
 
   changesActive = id => {
-    console.log(id);
-    
     this.setState(prevState => {
       return {
         todosList: prevState.todosList.map(todo => {
-          if (todo.id == id) {
+          if (todo.id === id) {
             todo.is_active = !todo.is_active;
             return todo;
           }
