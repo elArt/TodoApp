@@ -1,0 +1,37 @@
+.todo{
+    border: 1px solid rgb(107, 107, 107);
+    padding: 15px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    position: relative;
+    p{
+        margin: 0;
+        margin-left: 30px;
+        display:inline-block;
+    }
+    .time{
+        position: absolute;
+        right: 40%;
+    }
+    .btnGroup{
+        position: absolute;
+        right: 2%;
+        display:inline-block;
+        .btnDone{
+            margin: 0 20px;
+        }
+        .btnActive{
+            border: 0;
+            background-color: #0aee3b;
+            margin-top: 5px;
+            right: 11%;
+            height: 12px;
+            width: 5px;
+            border-radius: 50%;
+        }
+        .btnEdit{
+            margin: 0 20px;
+        }
+    }
+
+}
