@@ -8,6 +8,7 @@
         margin: 0;
         margin-left: 30px;
         display:inline-block;
+        text-align: center;
     }
     .time{
         position: absolute;
@@ -23,6 +24,15 @@
         .btnActive{
             border: 0;
             background-color: #0aee3b;
+            margin-top: 5px;
+            right: 11%;
+            height: 12px;
+            width: 5px;
+            border-radius: 50%;
+        }
+        .btnDontActive{
+            border: 0;
+            background-color: #ee0a0a;
             margin-top: 5px;
             right: 11%;
             height: 12px;

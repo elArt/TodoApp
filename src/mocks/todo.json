@@ -8,7 +8,8 @@
         "Web Development",
         "Web Components"
       ],
-      "is_complete" : true
+      "is_complete" : true,
+      "is_active": false
     },
     {
       "id" : 2,
@@ -18,7 +19,8 @@
         "Devops",
         "Docker"
       ],
-      "is_complete" : true
+      "is_complete" : true,
+      "is_active": true
     },
     {
       "id" : 3,
@@ -28,7 +30,8 @@
         "Presentation",
         "Aureia"
       ],
-      "is_complete" : false
+      "is_complete" : false,
+      "is_active": true
     },
     {
       "id" : 4,
@@ -38,7 +41,8 @@
         "Devops",
         "Puppet"
       ],
-      "is_complete" : false
+      "is_complete" : false,
+      "is_active": false
     },
     {
       "id" : 5,
@@ -48,7 +52,8 @@
         "ES6",
         "Web Development"
       ],
-      "is_complete" : false
+      "is_complete" : false,
+      "is_active": true
     }
   ]
 }
