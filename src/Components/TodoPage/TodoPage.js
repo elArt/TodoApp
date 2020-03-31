@@ -3,7 +3,10 @@ import Input from "../Input/Input";
 import FieldTodo from "../FieldTodo/FieldTodo";
 import ModalWindow from "../ModalWindow/ModalWindow";
 
+import { Button } from 'antd';
+
 import styles from "./styles.module.scss";
+
 
 import * as data from "../../mocks/todo.json";
 
@@ -14,7 +17,8 @@ class TodoPage extends React.Component {
     todosList: [],
     visible: false,
     changesItem: {},
-    creatingItem: {}
+    creatingItem: {},
+    checkDoneItemId: [],
   };
 
   componentDidMount() {
@@ -100,7 +104,7 @@ class TodoPage extends React.Component {
             todo.is_active = !todo.is_active;
             return todo;
           }
-          else{
+          else {
             return todo;
           }
         })
@@ -108,8 +112,35 @@ class TodoPage extends React.Component {
     });
   };
 
+  addCheckedElementInArray = id => {
+    this.setState(prevState => {
+      return {
+        checkDoneItemId: [...prevState.checkDoneItemId, id]
+      };
+    });
+  };
+
+  addCheckedDoneTask = () =>{
+    const { todosList, checkDoneItemId } = this.state;
+    const newDoneTask = todosList.map(todo => {
+      checkDoneItemId.map(id => {
+        if (id === todo.id){
+          todo.is_complete = true;
+          todo.is_active = false;
+        };
+      });
+      return todo;
+    });
+    
+    this.setState({
+      todosList: newDoneTask,
+      checkDoneItemId: [],
+    });
+  };
+
+
   render() {
-    const { changesItem, visible, todosList, creatingItem } = this.state;
+    const { changesItem, visible, todosList, creatingItem, checkDoneItemId } = this.state;
 
     return (
       <div className={styles.container}>
@@ -119,17 +150,18 @@ class TodoPage extends React.Component {
           creatingNewTodo={this.creatingNewTodo}
           text={creatingItem.text}
         />
-
         <FieldTodo
           todosList={todosList}
           showModal={this.showModal}
           selectChangesItem={this.selectChangesItem}
           deleteTask={this.deleteTask}
           changesActive={this.changesActive}
+          addCheckedElementInArray={this.addCheckedElementInArray}
         />
+        {checkDoneItemId.length !== 0 && <Button type="primary" onClick = {this.addCheckedDoneTask}>Done Task</Button>}
         <ModalWindow
           handleOk={this.handleOk(changesItem)}
-          handleCancel={this.handleCancel}
+          handleCancel={this.showModal}
           changeModalValue={this.changeModalValue}
           changesItem={changesItem}
           visible={visible}
