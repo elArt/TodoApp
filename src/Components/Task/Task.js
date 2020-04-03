@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./styles.module.scss";
 import { Checkbox, Icon, Popconfirm } from "antd";
 
-const Task = ({ todo, showModal, selectChangesItem, deleteTask , changesActive}) => {
+const Task = ({ todo, showModal, selectChangesItem, deleteTask, changesActive, addCheckedElementInArray }) => {
   const dateCreate = new Date(todo.created_at);
 
   const dateTodoCreate = `${
@@ -30,9 +30,20 @@ const Task = ({ todo, showModal, selectChangesItem, deleteTask , changesActive})
     changesActive(todo.id);
   };
 
+  let todoChecked = todo.is_complete;
+  const checkedTask = () => {
+    addCheckedElementInArray(todo.id);
+    todoChecked = true;
+  };
+
   return (
     <div className={styles.todo}>
-      <Checkbox  disabled={todo.is_complete} checked={todo.is_complete}/>
+      {
+      todo.is_complete ?
+        <Checkbox disabled={todo.is_complete} checked={todoChecked}  /> :
+        <Checkbox disabled={todo.is_complete} onChange={checkedTask} />
+      }
+
       <p>{todo.text}</p>
       <p className={styles.time}>{dateTodoCreate}</p>
       <div className={styles.btnGroup}>
@@ -41,8 +52,8 @@ const Task = ({ todo, showModal, selectChangesItem, deleteTask , changesActive})
         <Icon className={styles.btnEdit} onClick={editValue} type="edit" />
         <Popconfirm title="Are you sure？" okText="Yes" cancelText="No" onConfirm={deleteThisTask}>
           <Icon
-              className={styles.btnRemove}
-              type="delete"
+            className={styles.btnRemove}
+            type="delete"
           />
         </Popconfirm>
       </div>
